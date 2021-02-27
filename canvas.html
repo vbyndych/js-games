@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>this is a new file --- CANVAS!!!</title>
+    </head>
+
+<body>    
+<h1>Hey, look at THIS triangles!</h1>
+
+   <canvas id="canvas" width="700" height="700"></canvas>
+
+   <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+   <script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.strokeStyle = "Red";
+  ctx.fillStyle = "Purple";
+  ctx.lineWidth = 9;
+  ctx.beginPath();
+  ctx.moveTo(100, 100);
+  ctx.lineTo(250, 150);
+  ctx.lineTo(100, 150);
+  ctx.lineTo(100, 100);
+  ctx.stroke();
+  var hey = confirm("Hey, fill this triangle or not?");
+  if (hey) {
+    ctx.fill();
+  } else {
+    ctx.stroke();
+  };  
+  ctx.beginPath();
+  ctx.moveTo(100, 250);
+  ctx.lineTo(250, 300);
+  ctx.lineTo(50, 300);
+  ctx.lineTo(100, 250);
+  ctx.stroke();
+  var gey = confirm("Hey, fill 2 this triangles?");
+  if (gey) {
+    ctx.fill();
+  } else {
+    ctx.stroke();
+  };
+  var fight = confirm("Do you likes this?");
+  if (fight) {
+    console.log("Cool! I like it, too!")
+  } else {
+    console.log("Do not worry, I rechange it.")
+  };
+  $("canvas").fadeOut(2000).slideDown(6000);
+  $("h1").fadeOut(5000).slideDown(400);
+   </script>
+</body>    
+</html>
+

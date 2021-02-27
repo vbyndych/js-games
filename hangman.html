@@ -1,0 +1,64 @@
+<!DOCTYRE html>
+<html>
+ <head>   
+     <title>"Шибениця"!</title>    
+ </head>     
+
+ <body>
+<h1>"Шибениця"!</h1>
+
+<script>
+//form the mass of words
+var words = [
+  "javascript",  
+  "monkey",
+  "amazing",
+  "pancake",
+  "princess",
+  "great",
+  "wall",
+  "Ebeneser Scroodz",
+  "jquery",
+  "document"
+]; 
+//choose random word
+var word = words[Math.floor(Math.random() * words.length)];
+
+//form solution mass
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+  answerArray[i] = "_";    
+}  
+
+var remainingLetters = word.length;
+
+//game sickle
+while (remainingLetters > 0) {
+  //show player he's progress  
+  alert(answerArray.join(" "));
+
+  //give the forms of soluition from player
+  var guess = prompt("Guess a letter or click Cansel to stop playing.");
+  if (guess === null) {
+  //go out from game sickle     
+  break;
+  } else if (guess.length !== 1) {  
+    alert("Please enter a single letter.");  
+  } else {  
+  //go to new form the game with "x"(guess)  
+  for (var j = 0; j < word.length; j++) {
+    if (word[j] === guess) {
+      answerArray[j] = guess;
+      remainingLetters--;
+    }  
+   }
+  }
+//end of the game sicle
+ }
+
+ //give the solution and "hellower" the player
+ alert(answerArray.join(" "));
+ alert("Good job! The answert was " + word);
+</script>
+ </body> 
+ </html>

@@ -1,0 +1,73 @@
+ <!DOCTYRE html>
+<html>
+ <head>   
+     <title>playing with the DOM</title>    
+ </head>
+
+<body>
+<h1>This is a cars:</h1>
+
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+<script>
+var Car = function (x, y) {
+  this.x = x;  
+  this.y = y;
+}; 
+
+var drawCar = function (car) {
+  var carHtml = '<img src ="http://nostarch.com/images/car.png">';  
+
+  car.carElement = $(carHtml);
+  
+  car.carElement.css({
+    position: "absolute",  
+    left: car.x,
+    top: car.y
+  });    
+
+  $("body").append(car.carElement);
+};
+
+Car.prototype.moveRight = function () {
+  this.x += 5;  
+  this.carElement.css({
+    left: this.x,  
+    top: this.y
+  });    
+};
+
+Car.prototype.moveLeft = function () {
+  this.x -= 5;   
+
+  this.carElement.css({
+    left: this.x,  
+    top:this.y
+  });  
+};
+Car.prototype.moveUp = function () {
+  this.y -= 5;  
+
+  this.carElement.css({
+    left: this.x,  
+    top: this.y
+  });  
+};
+
+Car.prototype.moveDown = function () {
+  this.y += 5;  
+
+  this.carElement.css({
+    left: this.x,  
+    top: this.y
+  });  
+};
+
+var tesla = new Car(20, 20);
+var nissan = new Car(100, 200);
+
+drawCar(tesla);
+drawCar(nissan);
+</script>
+ </body> 
+ </html>
